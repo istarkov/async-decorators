@@ -1,5 +1,13 @@
 There are some helpfull decorators in this project for async class methods.
+#Install
+```shell
+npm install --save async-decorators
+```
 
+#Import
+```
+import {memoize, serialize, isSkipError} from 'async-decorators';
+```
 
 #Memoize decorator   
 has parameters `expireMs` and `cacheSize`   
