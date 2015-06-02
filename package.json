@@ -6,7 +6,7 @@
   "scripts": {
     "test_memoize": "babel-node --stage=0 ./__tests__/memoize.js",
     "example_memoize": "babel-node --stage=0 ./examples/memoize.js",
-    "example_sequence": "babel-node --stage=0 ./__tests__/sequence.js"
+    "example_sequence": "babel-node --stage=0 ./examples/sequence.js"
   },
   "repository": {
     "type": "git",

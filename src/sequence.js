@@ -4,7 +4,7 @@ const serialize_ = (promiseCaller, options) => {
   let isInRequest = false;
   let lastPromiseInvoke = null;
   let lastPromiseReject = null;
-  const opts = options || {};
+  const opts = options || {raiseSkipError: true};
 
   const callNext = () => {
     if (lastPromiseInvoke !== null) {
