@@ -1,6 +1,6 @@
 import 'babel/polyfill';
 
-import {memoize} from '../index.js';
+import {memoize} from '../src/index.js';
 import {sleep, getDataAsync, getSecondsFromStart} from './helpers.js';
 import {expect} from 'chai';
 

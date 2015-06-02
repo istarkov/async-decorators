@@ -1,5 +1,5 @@
 import 'babel/polyfill';
-import {serialize, isSkipError} from '../index.js';
+import {serialize, isSkipError} from '../src/index.js';
 
 const getDataAsync = (ms = 0, data = null) => new Promise(r => setTimeout(() => r(data), ms));
 

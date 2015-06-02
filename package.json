@@ -7,7 +7,9 @@
     "test_memoize": "babel-node --stage=0 ./__tests__/memoize.js",
     "example_memoize": "babel-node --stage=0 ./examples/memoize.js",
     "example_serialize": "babel-node --stage=0 ./examples/serialize.js",
-    "example_ser_memoize": "babel-node --stage=0 ./examples/ser_memoize.js"
+    "example_ser_memoize": "babel-node --stage=0 ./examples/ser_memoize.js",
+    "build": "./scripts/build",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",

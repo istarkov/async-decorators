@@ -1,5 +1,5 @@
 import 'babel/polyfill';
-import {memoize} from '../index.js';
+import {memoize} from '../src/index.js';
 
 const getDataAsync = (ms = 0, data = null) => new Promise(r => setTimeout(() => r(data), ms));
 const sleep = (ms = 0) => new Promise(r => setTimeout(r, ms));
