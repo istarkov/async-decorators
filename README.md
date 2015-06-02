@@ -1,5 +1,6 @@
 There are some helpfull decorators in this project for async class methods.
 
+
 #Memoize decorator   
 has parameters `expireMs` and `cacheSize`   
 usage:   
@@ -12,12 +13,12 @@ class Action {
 }
 ```
 
-See [example source](https://github.com/istarkov/async-decorators/tree/master/example/memoize.js)   
+See [example source](https://github.com/istarkov/async-decorators/blob/master/examples/memoize.js)   
 ```
 #run as 
 npm run example_memoize
 ```
-and [test source](https://github.com/istarkov/async-decorators/tree/master/__test__/memoize.js)   
+and [test source](https://github.com/istarkov/async-decorators/blob/master/__tests__/memoize.js)   
 ```
 #run as 
 npm run example_memoize

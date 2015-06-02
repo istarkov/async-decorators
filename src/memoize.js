@@ -1,8 +1,3 @@
-/**
- * promise memoize
-*/
-// const _ = require('underscore');
-const immutable = require('immutable');
 
 function hashCode_(str) {
   let hash = 0;
@@ -35,7 +30,7 @@ function memoize_(options) {
     const peek = (hash, im) => {
       if (hash in cache_) {
         const hashArray = cache_[hash];
-        const item = hashArray.find(v => immutable.is(v.im, im));
+        const item = hashArray.find(v => v.im === im);
         if (item !== undefined) {
           const currDt = (new Date()).getTime();
           if (currDt - item.dt < expireMs) {
@@ -71,7 +66,7 @@ function memoize_(options) {
     };
 
     return (...args) => {
-      const im = immutable.fromJS(args);
+      const im = JSON.stringify(args);
       const hash = hashCode_(im.toString()) & mask_;
 
       const item = peek(hash, im);

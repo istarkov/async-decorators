@@ -29,9 +29,5 @@
   "devDependencies": {
     "babel": "^5.4.7",
     "chai": "^2.3.0"
-  },
-  "dependencies": {
-    "immutable": "^3.7.3",
-    "underscore": "^1.8.3"
   }
 }
