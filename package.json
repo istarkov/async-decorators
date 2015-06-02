@@ -1,0 +1,37 @@
+{
+  "name": "async-decorators",
+  "version": "0.0.1",
+  "description": "async-await and 'promise methods' decorators",
+  "main": "index.js",
+  "scripts": {
+    "test_memoize": "babel-node --stage=0 ./__tests__/memoize.js",
+    "example_memoize": "babel-node --stage=0 ./examples/memoize.js",
+    "example_sequence": "babel-node --stage=0 ./__tests__/sequence.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/istarkov/async-decorators.git"
+  },
+  "keywords": [
+    "async",
+    "await",
+    "promise",
+    "decorator",
+    "memoize",
+    "serialize"
+  ],
+  "author": "istarkov https://github.com/istarkov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/istarkov/async-decorators/issues"
+  },
+  "homepage": "https://github.com/istarkov/async-decorators",
+  "devDependencies": {
+    "babel": "^5.4.7",
+    "chai": "^2.3.0"
+  },
+  "dependencies": {
+    "immutable": "^3.7.3",
+    "underscore": "^1.8.3"
+  }
+}
