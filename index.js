@@ -1,4 +1,4 @@
 
 export { default as memoize } from './src/memoize.js';
-export { default as sequence, isSkipError } from './src/sequence.js';
+export { default as serialize, isSkipError } from './src/serialize.js';
 

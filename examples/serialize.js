@@ -1,11 +1,11 @@
 import 'babel/polyfill';
-import {sequence, isSkipError} from '../index.js';
+import {serialize, isSkipError} from '../index.js';
 
 const getDataAsync = (ms = 0, data = null) => new Promise(r => setTimeout(() => r(data), ms));
 
 class Action {
   // set raiseSkipError to false if you don't need SKIP_ERR
-  @sequence({raiseSkipError: true})
+  @serialize({raiseSkipError: true})
   async query(p1, p2) {
     console.log('query call', p1);
     return await getDataAsync(1000, {p1, p2})

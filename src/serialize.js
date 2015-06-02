@@ -65,7 +65,7 @@ export function isSkipError(e) {
 }
 
 
-export default function sequence(options) {
+export default function serialize(options) {
   return (target, key, descriptor) => {
     return {
       configurable: true,
