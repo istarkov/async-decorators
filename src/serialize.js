@@ -73,7 +73,7 @@ export default function serialize(options) {
         let classMethod = (typeof descriptor.get !== 'function') ? descriptor.value : descriptor.get.call(this);
 
         if (typeof classMethod !== 'function') {
-          throw new Error(`@autobind decorator can only be applied to methods not: ${typeof classMethod}`);
+          throw new Error(`@serialize decorator can only be applied to methods not: ${typeof classMethod}`);
         }
 
         let classMethodBinded = classMethod.bind(this);
