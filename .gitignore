@@ -1,4 +1,4 @@
 /node_modules
-index.js
-memoize.js
-serialize.js
+/index.js
+/memoize.js
+/serialize.js
