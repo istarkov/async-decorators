@@ -1,6 +1,6 @@
 {
   "name": "async-decorators",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "async-await and 'promise methods' decorators",
   "main": "index.js",
   "scripts": {
