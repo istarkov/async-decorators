@@ -69,6 +69,7 @@ export default function serialize(options) {
   return (target, key, descriptor) => {
     return {
       configurable: true,
+      enumerable: true,
       get() {
         let classMethod = (typeof descriptor.get !== 'function') ? descriptor.value : descriptor.get.call(this);
 
