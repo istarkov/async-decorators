@@ -32,5 +32,8 @@
   "devDependencies": {
     "babel": "^5.4.7",
     "chai": "^2.3.0"
+  },
+  "dependencies": {
+    "lodash": "^3.10.1"
   }
 }

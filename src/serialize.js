@@ -1,10 +1,11 @@
+import isFunction from 'lodash/lang/isFunction';
+
 const K_SKIP_ERROR = 'K_SKIP_ERROR';
 
-const serialize_ = (promiseCaller, options) => {
+const serialize_ = (promiseCaller, options = {raiseSkipError: true}) => {
   let isInRequest = false;
   let lastPromiseInvoke = null;
   let lastPromiseReject = null;
-  const opts = options || {raiseSkipError: true};
 
   const callNext = () => {
     if (lastPromiseInvoke !== null) {
@@ -52,7 +53,7 @@ const serialize_ = (promiseCaller, options) => {
       };
 
       lastPromiseReject = () => {
-        if (opts.raiseSkipError) {
+        if (options.raiseSkipError) {
           reject(new Error(K_SKIP_ERROR));
         }
       };
@@ -65,7 +66,11 @@ export function isSkipError(e) {
 }
 
 
-export default function serialize(options) {
+export default function serialize(optionsOrFn, maybeOptions) {
+  if (isFunction(optionsOrFn)) {
+    return serialize_(optionsOrFn, maybeOptions);
+  }
+
   return (target, key, descriptor) => {
     return {
       configurable: true,
@@ -78,7 +83,7 @@ export default function serialize(options) {
         }
 
         let classMethodBinded = classMethod.bind(this);
-        let serializedCallFn = serialize_(classMethodBinded, options);
+        let serializedCallFn = serialize_(classMethodBinded, optionsOrFn);
 
         Object.defineProperty(this, key, {
           value: serializedCallFn,

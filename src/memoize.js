@@ -1,3 +1,5 @@
+import isFunction from 'lodash/lang/isFunction';
+import sortBy from 'lodash/collection/sortBy';
 
 function hashCode_(str) {
   let hash = 0;
@@ -17,9 +19,13 @@ function log2(val) {
   return Math.log(val) / Math.LN2;
 }
 
-function memoize_(options) {
+function memoize_(options = {}) {
   return fn => {
-    const {cacheSizePower, expireMs, maxItemsPerHash, cacheSize} = Object.assign({cacheSizePower: 8, expireMs: 60 * 15 * 1000, maxItemsPerHash: 4}, options);
+    const {cacheSizePower, expireMs, maxItemsPerHash, cacheSize} = Object.assign({
+      cacheSizePower: 8,
+      expireMs: 60 * 15 * 1000,
+      maxItemsPerHash: 4
+    }, options);
 
     const cacheSizePowerCalc = Math.round((cacheSize && cacheSize > 2) ? log2(cacheSize) : cacheSizePower);
 
@@ -54,7 +60,8 @@ function memoize_(options) {
         item.dt = currDt;
         item.result = result;
         // пересортировать
-        cache_[hash] = hashArray.sortBy(v => v.dt);
+
+        cache_[hash] = sortBy(hashArray, v => v.dt);
       } else {
         item = {dt: currDt, im: im, result: result};
 
@@ -85,7 +92,11 @@ function memoize_(options) {
 }
 
 
-export default function memoize(options) {
+export default function memoize(optionsOrFn, maybeOptions) {
+  if (isFunction(optionsOrFn)) {
+    return memoize_(maybeOptions)(optionsOrFn);
+  }
+
   return (target, key, descriptor) => {
     return {
       configurable: true,
@@ -98,7 +109,7 @@ export default function memoize(options) {
 
         let classMethodBinded = classMethod.bind(this);
 
-        let memoizedCallFn = memoize_(options)(classMethodBinded);
+        let memoizedCallFn = memoize_(optionsOrFn)(classMethodBinded);
 
         Object.defineProperty(this, key, {
           value: memoizedCallFn,
