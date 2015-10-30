@@ -1,10 +1,13 @@
-There are some helpfull decorators in this project for async class methods.
+There are some helpfull decorators in this project for async class methods and functions.
+
 #Install
+
 ```shell
 npm install --save async-decorators
 ```
 
 #Import
+
 ```
 import {memoize, serialize, isSkipError} from 'async-decorators';
 ```
@@ -19,6 +22,14 @@ class Action {
     return await getDataAsync({p1, p2});
   }
 }
+```
+ 
+or just
+
+```javascript
+const asyncFn = memoize(async (x) => {
+  return await ....
+});
 ```
 
 See [example source](https://github.com/istarkov/async-decorators/blob/master/examples/memoize.js)   
@@ -43,6 +54,14 @@ class Action {
     return await getDataAsync({p1, p2});
   }
 }
+```
+
+or just
+
+```javascript
+const sfn = serialize(async (x) => {
+  return await ....
+})
 ```
 
 See [example source](https://github.com/istarkov/async-decorators/blob/master/examples/serialize.js)   
