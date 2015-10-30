@@ -8,7 +8,7 @@
     "example_memoize": "babel-node --stage=0 ./examples/memoize.js",
     "example_serialize": "babel-node --stage=0 ./examples/serialize.js",
     "example_ser_memoize": "babel-node --stage=0 ./examples/ser_memoize.js",
-    "build": "./scripts/build.sh",
+    "build": "babel src --out-dir .",
     "prepublish": "npm run build"
   },
   "repository": {
